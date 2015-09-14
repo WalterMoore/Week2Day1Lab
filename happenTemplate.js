@@ -2,13 +2,15 @@ var library = (function() {
 var monthNum = new Date().getMonth() +1;
 var dayNum = new Date().getDate();
 var dateOfYear = new Date().getFullYear();
+var dayOfWeek = new Date().getDay();
+var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
   return /*something?*/{
 	TimeStamp: (function(){
    	  return /*something here?*/{
 		UnixTimestamp: function(){
 			var myUnixTimeStamp = new Date().getTime();
-			return String(myUnixTimeStamp);
+			return String(Math.floor(myUnixTimeStamp/1000));//wrong
 		},
 		UnixMillisecond: function(){
 			var myUnixTimeStamp = new Date().getTime();
@@ -68,9 +70,15 @@ var dateOfYear = new Date().getFullYear();
 	})(),
 	Week: (function(){
 		return {
-			DayOfWeek: function(){},
-			AbrDayOfWeek: function(){},
-			FirstTwoOfWeek: function(){},
+			DayOfWeek: function(){
+				return fullDayArray[dayOfWeek];
+			},
+			AbrDayOfWeek: function(){
+				return fullDayArray[dayOfWeek].substr(0,3);
+			},
+			FirstTwoOfWeek: function(){
+				return fullDayArray[dayOfWeek].substr(0,2);
+			},
 			WeekOfYear: function(){}
 		}
 	})(),
