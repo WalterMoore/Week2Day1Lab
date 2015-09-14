@@ -1,5 +1,8 @@
 var library = (function() {
-	
+var monthNum = new Date().getMonth() +1;
+
+
+
   return /*something?*/{
 	TimeStamp: (function(){
    	  return /*something here?*/{
@@ -65,11 +68,23 @@ var library = (function() {
 				}
 			})(),
 			MonthNumber: function(){
-				var myMonth = new Date().getMonth() +1;
-				return String(myMonth);
+				var myMonthNumber = monthNum;
+				return String(myMonthNumber);
 			},
-			MonthNumberDblDigit: function(){},
-			AbrOfCurrentMonth: function(){},
+			MonthNumberDblDigit: function(){
+				var myMonthNumberDblDigit = monthNum;
+					if (myMonthNumberDblDigit < 10) {	
+						return String('0' + myMonthNumberDblDigit);
+					} else {
+						return String(myMonthNumberDblDigit);
+					}
+			},
+			
+			AbrOfCurrentMonth: function(){
+				//var AbrOfCurrentMonth = monthNum - 1;
+				var MonArray = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+					return MonArray[monthNum - 1];
+			},
 			CurrentMonth: function(){}
 		}
 	})(),
