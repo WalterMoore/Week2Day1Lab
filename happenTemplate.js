@@ -1,7 +1,8 @@
 var library = (function() {
-  return {
+	
+  return /*something?*/{
 	TimeStamp: (function(){
-   	  return {
+   	  return /*something here?*/{
 		UnixTimestamp: function(){},
 		UnixMillisecond: function(){}
 	  }
@@ -63,7 +64,10 @@ var library = (function() {
 					DateDblDigit: function(){}
 				}
 			})(),
-			MonthNumber: function(){},
+			MonthNumber: function(){
+				var myMonth = new Date().getMonth() +1;
+				return String(myMonth);
+			},
 			MonthNumberDblDigit: function(){},
 			AbrOfCurrentMonth: function(){},
 			CurrentMonth: function(){}
