@@ -52,18 +52,46 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 	})(),
 	Minute: (function(){
 		return{
-			Minute: function(){},
-			DblDigit: function(){}
+			Minute: function(){
+				var myMinute = new Date().getMinutes();
+				return String(myMinute);
+			},
+			DblDigit: function(){
+				var myDblDigit = new Date().getMinutes();
+				if (myDblDigit < 10) {	
+						return String('0' + myDblDigit);
+					} else {
+						return String(myDblDigit);
+					}
+			}
 		}
 	})(),
 	Hour: (function(){
 		return {
-			TwentyFourHour: function() {},
-			TwelveHour: function() {},
+			TwentyFourHour: function() {
+				var myTwentyFourHour = new Date().getHours();
+				return String(myTwentyFourHour);
+			},
+			TwelveHour: function() {
+				var myTwelveHour = new Date().getHours();
+				if (myTwelveHour > 12){
+					return String(myTwelveHour -12);
+				}else{
+					return String(myTwelveHour);
+				}
+			},
 			AMPM: (function() {
 				return {
-					UpperCase: function(){},
-					LowerCase: function(){}
+					UpperCase: function(){
+						var hours = new Date().getHours();
+						var ampm = (hours >= 12)? 'PM': 'AM';
+						return String(ampm);
+					},
+					LowerCase: function(){
+						var hours = new Date().getHours();
+						var ampm = (hours >= 12)? 'pm': 'am';
+						return String(ampm);
+					}
 				}
 			})()
 		}
