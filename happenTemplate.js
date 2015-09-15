@@ -147,7 +147,14 @@ var MonthArray = ['January','February','March','April','May','June','July','Augu
 			FirstTwoOfWeek: function(){
 				return fullDayArray[dayOfWeek].substr(0,2);
 			},
-			WeekOfYear: function(){}
+			WeekOfYear: function(){
+				       var now = new Date();
+                       var start = new Date(now.getFullYear(), 0, 0);
+                       var diff = now - start;
+                       var oneWeek = 1000 * 60 * 60 * 24 * 7;
+                       var week = Math.floor(diff/oneWeek + 2);//temp solution until I figure out how to take into account leap years
+                       return String(week);
+			}
 		}
 	})(),
 	Month: (function(){
@@ -159,7 +166,15 @@ var MonthArray = ['January','February','March','April','May','June','July','Augu
 						return String(myNum);
 					},
 					Ordinal: function(){
-						var myOrdinal = dayNum + "eleventeenth";
+						var myOrdinal = dayNum;
+						
+                        switch (myOrdinal) {
+                         case 1: + myOrdinal + "st";
+                         case 2: + myOrdinal + "nd";
+                         case 3: + myOrdinal + "rd";
+                         default: return + myOrdinal + "th";
+                        }
+						
 						return String(myOrdinal);
 					},
 					DateDblDigit: function(){
@@ -251,8 +266,18 @@ var MonthArray = ['January','February','March','April','May','June','July','Augu
 							var stringHour = String(hour);
 						}
 					var minute = new Date().getMinutes();
+						if (minute < 10){
+							var stringMinute = String("0" + minute);
+						}else{
+							var stringMinute = String(minute);
+						}
 					var second = new Date().getSeconds();
-		return String(dateOfYear) + "-" + stringMyMonthDblDigit + "-" +stringMyDateDblDigit + "T" + stringHour + ":" + String(minute + ":" + second);
+						if (second < 10){
+							var stringSecond = String("0" + second);
+						}else{
+							var stringSecond = String(second);
+						}
+		return String(dateOfYear) + "-" + stringMyMonthDblDigit + "-" +stringMyDateDblDigit + "T" + stringHour + ":" + stringMinute + ":" + stringSecond;
 	}
   }
 })();
