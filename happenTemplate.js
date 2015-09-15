@@ -199,8 +199,28 @@ var MonthArray = ['January','February','March','April','May','June','July','Augu
 		return {
 			DayOfYear: (function(){
 				return {
-					Numeral: function(){},
-					Ordinal: function(){}
+					Numeral: function(){
+                       var now = new Date();
+                       var start = new Date(now.getFullYear(), 0, 0);
+                       var diff = now - start;
+                       var oneDay = 1000 * 60 * 60 * 24;
+                       var day = Math.floor(diff / oneDay);
+                       return String(day);
+                   },
+                   Ordinal: function(){
+                       var now = new Date();
+                       var start = new Date(now.getFullYear(), 0, 0);
+                       var diff = now - start;
+                       var oneDay = 1000 * 60 * 60 * 24;
+                       var day = Math.floor(diff / oneDay);
+                        switch (day.toString[day.length -1]) {
+                         case 1: + day + "st";
+                         case 2: + day + "nd";
+                         case 3: + day + "rd";
+                         default: return + day + "th";
+                        }
+						return String(day);
+				   }
 				}
 			})(),
 			YearFull: function(){
