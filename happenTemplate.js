@@ -5,12 +5,12 @@ var dateOfYear = new Date().getFullYear();
 var dayOfWeek = new Date().getDay();
 var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  return /*something?*/{
-	TimeStamp: (function(){
-   	  return /*something here?*/{
+  return /*something?--no*/{
+	TimeStamp: (function(){//done
+   	  return /*something here?--no*/{
 		UnixTimestamp: function(){
 			var myUnixTimeStamp = new Date().getTime();
-			return String(Math.floor(myUnixTimeStamp/1000));//wrong
+			return String(Math.floor(myUnixTimeStamp/1000));//wrong--fixed
 		},
 		UnixMillisecond: function(){
 			var myUnixTimeStamp = new Date().getTime();
@@ -22,7 +22,11 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 	  return {
 		Time: (function() {
 		  return {
-	  	    WithSeconds: function(){},
+	  	    WithSeconds: function(){
+				var hour = new Date().getHours();
+				var minute = new Date().getMinutes();
+				var second = new Date().getSeconds();
+			  },
 	   	    WithOutSeconds: function() {}
 		  }
 		})(),
@@ -34,7 +38,7 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 		  })(),
 		}
 	})(),
-	Second: (function(){
+	Second: (function(){//done
 		return{
 			Second: function(){
 				var mySecond = new Date().getSeconds();
@@ -50,7 +54,7 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 			}
 		}
 	})(),
-	Minute: (function(){
+	Minute: (function(){//done
 		return{
 			Minute: function(){
 				var myMinute = new Date().getMinutes();
@@ -66,7 +70,7 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 			}
 		}
 	})(),
-	Hour: (function(){
+	Hour: (function(){//done
 		return {
 			TwentyFourHour: function() {
 				var myTwentyFourHour = new Date().getHours();
