@@ -26,6 +26,7 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 				var hour = new Date().getHours();
 				var minute = new Date().getMinutes();
 				var second = new Date().getSeconds();
+				return String(hour + ":" + minute + ":" + second);
 			  },
 	   	    WithOutSeconds: function() {}
 		  }
