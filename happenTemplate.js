@@ -4,6 +4,7 @@ var dayNum = new Date().getDate();
 var dateOfYear = new Date().getFullYear();
 var dayOfWeek = new Date().getDay();
 var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var MonthArray = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
   return /*something?--no*/{
 	TimeStamp: (function(){//done
@@ -63,8 +64,12 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 		})(),
 		MDY: (function(){
 	  	  return {
-		    Numeral: function(){},
-			Name: function(){}
+		    Numeral: function(){
+				return String(monthNum + "/" + dayNum + "/" + dateOfYear);
+			},
+			Name: function(){
+				return String(MonthArray[monthNum - 1] + " " + dayNum + ", " + dateOfYear);
+			}
 		  }
 		  })(),
 		}
@@ -186,7 +191,6 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 					return MonArray[monthNum - 1];
 			},
 			CurrentMonth: function(){ 
-				var MonthArray = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 					return MonthArray[monthNum - 1];
 			}
 		}
