@@ -22,15 +22,43 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 	  return {
 		Time: (function() {
 		  return {
-	  	    WithSeconds: function(){
+	  	    WithSeconds: function(){//fix so it works with pm times and has dbl digits on minutes and seconds.
 				var hour = new Date().getHours();
 				var ampm = (hour >= 12)? 'PM': 'AM';
+					if (hour > 12){
+						var hour = hour - 12;
+					}
+					var stringHour = String(hour);
 				var minute = new Date().getMinutes();
+					if (minute < 10){
+						var stringMinute = String("0" + minute);
+					}else{
+						var stringMinute = String(minute);
+					}
 				var second = new Date().getSeconds();
-				
-				return String(hour + ":" + minute + ":" + second+ " " + ampm);
+					if (second < 10){
+						var stringSecond = String("0" + second);
+					}else{
+						var stringSecond = String(second);
+					}
+				return stringHour + ":" + stringMinute + ":" + stringSecond+ " " + ampm;
 			  },
-	   	    WithOutSeconds: function() {}
+	   	    WithOutSeconds: function() {				
+				   	var hour = new Date().getHours();
+					var ampm = (hour >= 12)? 'PM': 'AM';
+						if (hour > 12){
+							var hour = hour - 12;
+					}
+					var stringHour = String(hour);
+					var minute = new Date().getMinutes();
+						if (minute < 10){
+							var stringMinute = String("0" + minute);
+						}else{
+							var stringMinute = String(minute);
+					}
+
+				return stringHour + ":" + stringMinute + " " + ampm;
+			  },
 		  }
 		})(),
 		MDY: (function(){
