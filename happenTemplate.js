@@ -211,6 +211,28 @@ var MonthArray = ['January','February','March','April','May','June','July','Augu
 			}
 		}
 	})(),
-	Defaults: function(){}
+	Defaults: function(){
+					var myMonthNumberDblDigit = monthNum;
+						if (myMonthNumberDblDigit < 10) {	
+						var stringMyMonthDblDigit = String('0' + myMonthNumberDblDigit);
+					} else {
+						var stringMyMonthDblDigit = String(myMonthNumberDblDigit);
+					}
+					var myDateDblDigit = dayNum;
+						if (myDateDblDigit < 10) {	
+						var stringMyDateDblDigit = String('0' + myDateDblDigit);
+					} else {
+						var stringMyDateDblDigit = String(myDateDblDigit);
+					}
+					var hour = new Date().getHours();
+						if (hour < 10){
+							var stringHour = String("0" + hour);
+						}else{
+							var stringHour = String(hour);
+						}
+					var minute = new Date().getMinutes();
+					var second = new Date().getSeconds();
+		return String(dateOfYear) + "-" + stringMyMonthDblDigit + "-" +stringMyDateDblDigit + "T" + stringHour + ":" + String(minute + ":" + second);
+	}
   }
 })();
