@@ -24,9 +24,11 @@ var fullDayArray = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday',
 		  return {
 	  	    WithSeconds: function(){
 				var hour = new Date().getHours();
+				var ampm = (hour >= 12)? 'PM': 'AM';
 				var minute = new Date().getMinutes();
 				var second = new Date().getSeconds();
-				return String(hour + ":" + minute + ":" + second);
+				
+				return String(hour + ":" + minute + ":" + second+ " " + ampm);
 			  },
 	   	    WithOutSeconds: function() {}
 		  }
